@@ -23,7 +23,7 @@ def get_information():
             utc_time = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
             github_file_url = "https://github.com/lyndalebdjiri/HNGInternship-stageOne/blob/77dbccdff7256e4f3375c42e88fd0455be8729c7/Backend/Run.py"
             github_repo_url = "https://github.com/lyndalebdjiri/HNGInternship-stageOne.git"
-            response = requests.get("http://example.com/api", params={"slack_name": slack_name, "track": track})
+            response = requests.get("https://hnginternship-stageone.onrender.com", params={"slack_name": slack_name, "track": track})
             status_code = response.status_cod
 
             response = {
