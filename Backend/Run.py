@@ -26,15 +26,15 @@ def get_information():
             response = requests.get("https://hnginternship-stageone.onrender.com", params={"slack_name": slack_name, "track": track})
             status_code = response.status_code
 
-            response = {
-                "slack_name": slack_name,
-                "current_day": current_day,
-                "utc_time": utc_time,
-                "track": track,
-                "github_file_url": github_file_url,
-                "github_repo_url": github_repo_url,
-                "status_code":status_code ,
-            }
+            response = OrderedDict([
+                ("slack_name", slack_name),
+                ("current_day", current_day),
+                ("utc_time", utc_time),
+                ("track", track),
+                ("github_file_url", github_file_url),
+                ("github_repo_url", github_repo_url),
+                ("status_code", status_code),
+            ])
             return jsonify(response)
     else:
         print(f'{form.errors}')
