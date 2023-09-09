@@ -38,7 +38,7 @@ def get_information():
                 "status_code": status_code,
             }
             response = json.dumps(response_data, sort_keys=False)
-            return jsonify(response)
+            return response
     else:
             print(f'{form.errors}')
     return render_template("html/form.html",form=form)
