@@ -21,7 +21,7 @@ def get_information():
             track = form.track.data
             current_day = datetime.date.today().strftime("%A")
             utc_time = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-            github_file_url = "https://github.com/lyndalebdjiri/stageOneHNGX/blob/cd68c8d5a4852df358ed37064c8220da634ed570/Backend/Run.py"
+            github_file_url = "https://github.com/lyndalebdjiri/HNGInternship-stageOne/blob/77dbccdff7256e4f3375c42e88fd0455be8729c7/Backend/Run.py"
             github_repo_url = "https://github.com/lyndalebdjiri/HNGInternship-stageOne.git"
             response = requests.get("http://example.com/api", params={"slack_name": slack_name, "track": track})
             status_code = response.status_cod
