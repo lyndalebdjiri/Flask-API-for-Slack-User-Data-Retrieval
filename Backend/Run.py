@@ -1,10 +1,11 @@
-from flask import Flask , request , render_template , jsonify
+from flask import Flask , request , render_template
 from collections import OrderedDict
 from form import Form_validation
 import os
 import datetime
 import time
 import requests
+import json
 
 
 app = Flask(__name__)
@@ -27,18 +28,19 @@ def get_information():
             response = requests.get("https://hnginternship-stageone.onrender.com", params={"slack_name": slack_name, "track": track})
             status_code = response.status_code
 
-            response = OrderedDict([
-                ("slack_name", slack_name),
-                ("current_day", current_day),
-                ("utc_time", utc_time),
-                ("track", track),
-                ("github_file_url", github_file_url),
-                ("github_repo_url", github_repo_url),
-                ("status_code", status_code),
-            ])
+            response_data = {
+                "slack_name": slack_name,
+                "current_day": current_day,
+                "utc_time": utc_time,
+                "track": track,
+                "github_file_url": github_file_url,
+                "github_repo_url": github_repo_url,
+                "status_code": status_code,
+            }
+            response = json.dumps(response_data, sort_keys=False)
             return jsonify(response)
     else:
-        print(f'{form.errors}')
+            print(f'{form.errors}')
     return render_template("html/form.html",form=form)
 
 
