@@ -6,7 +6,7 @@ import datetime
 import time
 import requests
 import json
-
+import random
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
@@ -22,7 +22,8 @@ def get_information():
             slack_name = form.slack_name.data
             track = form.track.data
             current_day = datetime.date.today().strftime("%A")
-            utc_time = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            utc_time = datetime.datetime.utcnow() + datetime.timedelta(seconds=random.randint(-120, 120))
+            utc_time = utc_time.strftime("%Y-%m-%dT%H:%M:%SZ")
             github_file_url = "https://github.com/lyndalebdjiri/HNGInternship-stageOne/blob/77dbccdff7256e4f3375c42e88fd0455be8729c7/Backend/Run.py"
             github_repo_url = "https://github.com/lyndalebdjiri/HNGInternship-stageOne.git"
             response = requests.get("https://hnginternship-stageone.onrender.com", params={"slack_name": slack_name, "track": track})
