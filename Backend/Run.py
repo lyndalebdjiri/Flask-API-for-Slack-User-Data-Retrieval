@@ -14,7 +14,7 @@ app.config['SECRET_KEY'] = os.urandom(24)
 @app.route("/")
 def hello():
     return "hello page"
-@app.route('/api', methods=['GET'])
+@app.route('/api', methods=['POST'])
 def get_information():
     form = Form_validation(request.args)
     utc_time = ""
