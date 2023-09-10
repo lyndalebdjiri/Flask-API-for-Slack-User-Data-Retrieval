@@ -19,7 +19,7 @@ def get_information():
     slack_name = request.args.get('slack_name')
     track = request.args.get('track')
     current_day = datetime.date.today().strftime("%A")
-    utc_time = datetime.datetime.utcnow() + datetime.timedelta(seconds=random.randint(-120, 120))
+    utc_time = datetime.datetime.utcnow() + datetime.timedelta(minutes=random.randint(-2, 2))
     utc_time = utc_time.strftime("%Y-%m-%dT%H:%M:%SZ")
     github_file_url = "https://github.com/lyndalebdjiri/HNGInternship-stageOne/blob/77dbccdff7256e4f3375c42e88fd0455be8729c7/Backend/Run.py"
     github_repo_url = "https://github.com/lyndalebdjiri/HNGInternship-stageOne.git"
