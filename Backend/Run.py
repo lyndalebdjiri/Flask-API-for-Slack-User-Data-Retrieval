@@ -41,10 +41,8 @@ def get_information():
                 "status_code": status_code,
             }
             response = json.dumps(response_data, sort_keys=False)
-            return response
-    else:
-            print(f'{form.errors}')
-    return render_template("html/form.html",form=form)
+ 
+    return render_template(response)
 
 
 if __name__ == '__main__':
