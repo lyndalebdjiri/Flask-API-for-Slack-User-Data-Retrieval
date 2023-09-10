@@ -1,4 +1,4 @@
-from flask import Flask , request , render_template
+from flask import Flask , request , render_template , jsonify
 import os
 import datetime
 import time
@@ -35,8 +35,8 @@ def get_information():
         "github_repo_url": github_repo_url,
         "status_code": status_code,
     }
-    response = json.dumps(response_data, sort_keys=False)
-    return response
+      
+    return jsonify(response_data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000,debug = True)
